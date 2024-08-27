@@ -1,11 +1,14 @@
+const axios = require("axios");
 const express = require("express");
+const router = express.Router(); 
 const app = express();
-const axios = require('axios');
 
+app.use(express.json()); 
+app.use('/', router); 
 
+const calculator = require('./Average_Calculator_HTTP/calculator');
+app.use('/',calculator)
 
-app.use(express.json());
-
-app.listen(3000, ()=>{
-    console.log("Server is running");
+app.listen(3000, () => {
+    console.log("Server is running on http://localhost:3000");
 });
