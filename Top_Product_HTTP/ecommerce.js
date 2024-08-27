@@ -49,7 +49,7 @@ router.get("/products", async (req, res) => {
         return res.status(400).json({ error: "Invalid maxPrice value" });
     }
 
-    // Fetch products
+    
     const products = await fetchProducts(companyName, categoryName, topN, minPrice, maxPrice);
     res.json({ products });
 });
