@@ -12,11 +12,7 @@ async function fetchProducts(companyName, categoryName, topN, minPrice, maxPrice
     try {
         const apiUrl = `http://20.244.56.144/test/companies/${companyName}/categories/${categoryName}/products?top=${topN}&minPrice=${minPrice}&maxPrice=${maxPrice}`;
 
-        const response = await axios.get(apiUrl, {
-            headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzI0NzM2Nzg5LCJpYXQiOjE3MjQ3MzY0ODksImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6ImE0N2U1NTNhLWZjZjktNGY4OC04MTQ1LTUxN2QxOWFlYWYxZSIsInN1YiI6IjIyZWc1MDZiMDdAYW51cmFnLmVkdS5pbiJ9LCJjb21wYW55TmFtZSI6IkFudXJhZyBVbml2ZXJzaXR5IiwiY2xpZW50SUQiOiJhNDdlNTUzYS1mY2Y5LTRmODgtODE0NS01MTdkMTlhZWFmMWUiLCJjbGllbnRTZWNyZXQiOiJBeXZvUVVHQ2JwdlBPbHlzIiwib3duZXJOYW1lIjoiS2F0dG9qdSBQcmFzaGFudGgiLCJvd25lckVtYWlsIjoiMjJlZzUwNmIwN0BhbnVyYWcuZWR1LmluIiwicm9sbE5vIjoiMjJFRzUwNkIwNyJ9.2siCgqgG3gvdpcz0NAHWPXe2HJ1aXD9rEScW2HKKbME'
-            }
-        });
+        const response = await axios.get(apiUrl);
 
         if (response.data && Array.isArray(response.data.products)) {
             return response.data.products;
